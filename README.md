@@ -1,2 +1,2 @@
 # medieval-demographics
-A tool to calculate demographics for medieval worlds, based on based on Medieval Demographics Made Easy by S. John Ross
+A tool to calculate demographics for medieval worlds, based on [Medieval Demographics Made Easy by S. John Ross](http://www222.pair.com/sjohn/blueroom/demog.htm)
