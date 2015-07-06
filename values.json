@@ -1,18 +1,27 @@
 [
   {
-    "text":"learn angular",
-    "done":true
-  },
-  {
-    "text":"build an angular app",
-    "done":false
-  },
-  {
-    "text":"something",
-    "done":false
-  },
-  {
-    "text":"another todo",
-    "done":true
+    "density":{
+      "desolate":{
+        "km2":10,
+        "multiplier":1
+      },
+      "frontier":{
+        "km2":20,
+        "multiplier":2
+      },
+      "settled":{
+        "km2":30,
+        "multiplier":3
+      },
+      "fertile":{
+        "km2":40,
+        "multiplier":4
+      },
+      "idyllic":{
+        "km2":45,
+        "multiplier":5
+      }
+    },
+    "test":1
   }
 ]
