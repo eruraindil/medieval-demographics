@@ -28,12 +28,12 @@
         <p>Choose:</p>
         <!-- Nav tabs -->
         <ul class="nav nav-tabs nav-justified" role="tablist">
-          <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Environment</a></li>
-          <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Density</a></li>
+          <li role="presentation" class="active"><a href="#environment" aria-controls="environment" role="tab" data-toggle="tab">Environment</a></li>
+          <li role="presentation"><a href="#popdensity" aria-controls="popdensity" role="tab" data-toggle="tab">Population Density</a></li>
         </ul>
         <!-- Tab panes -->
         <div class="tab-content">
-          <div role="tabpanel" class="tab-pane active" id="home">
+          <div role="tabpanel" class="tab-pane active" id="environment">
             <div class="form-group">
               <label for="multiplier" class="col-sm-2 control-label">Environmental Conditions</label>
               <div class="col-sm-10">
@@ -45,17 +45,17 @@
               </div>
             </div>
             <div class="form-group">
-              <label for="km2" class="col-sm-2 control-label">Density / km<sup>2</sup></label>
+              <label for="km2" class="col-sm-2 control-label">Pop / km<sup>2</sup></label>
               <div class="col-sm-10">
                 <input id="km2" class="form-control" value="{{ calcDensity(multiplier) }}" disabled>
               </div>
             </div>
           </div>
-          <div role="tabpanel" class="tab-pane" id="profile">
+          <div role="tabpanel" class="tab-pane" id="popdensity">
             <div class="form-group">
-              <label for="km2_2" class="col-sm-2 control-label">Density / km<sup>2</sup></label>
+              <label for="km2_2" class="col-sm-2 control-label">Pop / km<sup>2</sup></label>
               <div class="col-sm-10">
-                <select id="km2_2" class="form-control">
+                <select id="km2_2" class="form-control" data-ng-model="density2">
                   <option data-ng-repeat="(key, value) in values[0].density | orderObjectBy:'value.multiplier':false" value="{{ value.km2 }}">
                     {{ value.key }} ({{value.km2}})
                   </option>
@@ -64,6 +64,52 @@
             </div>
           </div>
         </div>
+
+        <h3>Population</h3>
+        <p>Choose:</p>
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs nav-justified" role="tablist">
+          <li role="presentation" class="active"><a href="#popSize" aria-controls="popSize" role="tab" data-toggle="tab">Population Size</a></li>
+          <li role="presentation"><a href="#countrySize" aria-controls="countrySize" role="tab" data-toggle="tab">Country Size</a></li>
+        </ul>
+        <!-- Tab panes -->
+        <div class="tab-content">
+          <div role="tabpanel" class="tab-pane active" id="popSize">
+            <div class="form-group">
+              <label for="cSize1" class="col-sm-2 control-label">Population Size (n)</label>
+              <div class="col-sm-10">
+                <input id="cSize1" class="form-control" data-ng-model="popSize">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="pSize1" class="col-sm-2 control-label">Country Size (km)</label>
+              <div class="col-sm-10">
+                <input id="pSize1" class="form-control" value="{{ calcCountrySize(popSize) }}" disabled>
+              </div>
+            </div>
+          </div>
+          <div role="tabpanel" class="tab-pane" id="countrySize">
+            <div class="form-group">
+              <label for="cSize2" class="col-sm-2 control-label">Country Size (km)</label>
+              <div class="col-sm-10">
+                <input id="cSize2" class="form-control" value="" data-ng-model="countrySize">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="pSize2" class="col-sm-2 control-label">Population Size (n)</label>
+              <div class="col-sm-10">
+                <input id="pSize2" class="form-control" value="{{ calcPop(countrySize) }}" disabled>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h3>Settlements</h3>
+        <ol>
+          <li data-ng-repeat="city in cities">
+            {{ city }}
+          </li>
+        </ol>
       </form>
     </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
